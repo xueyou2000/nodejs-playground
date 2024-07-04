@@ -58,7 +58,7 @@ node_modules
 # ignore ~ dist/ coverage/
 dist
 coverage
-dist-module
+esm
 
 # IntelliJ & lock & log
 .tmp/

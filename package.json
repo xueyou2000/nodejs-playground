@@ -4,15 +4,19 @@
   "description": "nodejs playground",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./esm/index.js"
+  },
   "scripts": {
     "start": "ts-node",
     "lint": "eslint .",
     "build": "rimraf dist && tsc",
-    "build-module": "rimraf dist-module && tsc -p tsconfig-module.json"
+    "build-module": "rimraf esm && tsc -p tsconfig-module.json"
   },
   "files": [
     "dist",
-    "dist-module",
+    "esm",
     "package.json",
     "README.md"
   ],
@@ -21,6 +25,18 @@
   ],
   "author": "XueYou",
   "license": "ISC",
+  "lint-staged": {
+    "*.{js,mjs,jsx,ts,tsx}": [
+      "eslint --fix --max-warnings 0 --cache --cache-location node_modules/.eslintCache"
+    ],
+    "*.{scss,css,less,sass}": [
+      "stylelint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@eslint/js": "^9.6.0",
     "@tsconfig/recommended": "^1.0.7",
