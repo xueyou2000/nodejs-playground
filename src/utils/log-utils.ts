@@ -1,7 +1,7 @@
 /**
  * 打印日志
- * @param message 
+ * @param message
  */
 export function print(message: string) {
-    console.log(`[${new Date().toLocaleString()}] ${message}`);
+  console.log(`[${new Date().toLocaleString()}] ${message}`)
 }
